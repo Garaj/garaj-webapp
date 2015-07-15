@@ -16,9 +16,9 @@
       <tabset>
         <tab heading="Personal Info">
           <div class="row">
-            <div class="col-sm-8">
+            <div class="col-sm-6">
               <div class="row mt10">
-                <div class="col-sm-8">
+                <div class="col-sm-10">
                   <div class="form-group">
                     <label>Full Name</label>
                     <input type="text" class="form-control" ng-model="user.name" mongoose-error/>
@@ -53,11 +53,11 @@
                       </div>
                     </div>
                   </div>
-                  <button class="btn btn-success" type="submit">Save changes</button>
+                  <button class="btn btn-success" type="submit" ng-click="update()">Save changes</button>
                 </div>
               </div>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
               <h2>How do you look?</h2>
               <div class="media">
                 <div class="pull-left" style="width: 160px;">

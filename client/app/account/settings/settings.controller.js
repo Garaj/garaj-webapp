@@ -21,7 +21,7 @@ angular.module('garajApp')
 
     $scope.changePhoto = function() {
       Notification.info({message: 'Changing photo...', delay: 2000});
-      $http.put('/api/users/' + $scope.user._id + '/photo', { fb_username: $scope.user.fb_username }).success(function (user) {
+      $http.put('/api/users/me/photo', { fb_username: $scope.user.fb_username }).success(function (user) {
         $scope.user.photo_url = user.photo_url;
         $scope.onSkillsChange();
         Notification.success({message: 'Saved new photo!', delay: 2000});
@@ -44,4 +44,12 @@ angular.module('garajApp')
         });
       }
 		};
+
+    $scope.update = function () {
+      $http.patch('/api/users/me', $scope.user).success(function () {
+        Notification.success('Updated user fields');
+      }).error(function () {
+        Notification.error('Could not update user fields');
+      });
+    };
   });
