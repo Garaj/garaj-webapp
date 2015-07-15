@@ -26,7 +26,7 @@
             <ul class="list-inline">
               <li ng-repeat="tag in post.tags"><a href="/blog?tags={{tag}}" class="btn btn-primary btn-xs">{{ tag }}</a></li>
             </ul>
-            <div class="pull-right">
+            <div class="pull-right" ng-show="isAdmin()">
               <a href="#" ng-click="deletePost(post._id)"class="btn btn-sm btn-danger">Delete post</a>
               <a href="/blog/edit/{{ post._id }}"class="btn btn-sm btn-info">Edit post</a>
             </div>
