@@ -10,6 +10,31 @@ var validationError = function(res, err) {
   return res.json(422, err);
 };
 
+var getPhotoUrlWithFacebookUsername = function (username, callback) {
+  request({
+    url: 'http://www.facebook.com/' + username,
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36'
+    }
+  }, function (err, resp) {
+    if (!err && resp.statusCode === 200) {
+
+      var url = resp.body.match(/profile_id=(\d*)/gi),
+          id = url[0].replace('profile_id=', '');
+
+      if(!id) {
+        url = resp.body.match(/entity_id":"(\d*)"}/gi);
+        id = url[0].replace('entity_id":"','').replace('"}','');
+      }
+      console.log(url);
+      console.log(id);
+      callback('http://graph.facebook.com/' + id + '/picture?type=large');
+    } else {
+      callback(false);
+    }
+  });
+};
+
 /**
  * Get list of users
  * restriction: 'admin'
@@ -28,10 +53,16 @@ exports.create = function (req, res, next) {
   var newUser = new User(req.body);
   newUser.provider = 'local';
   newUser.role = 'user';
-  newUser.save(function(err, user) {
-    if (err) return validationError(res, err);
-    var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
-    res.json({ token: token });
+  getPhotoUrlWithFacebookUsername(newUser.fb_username, function (url) {
+    if(url) {
+      newUser.photo_url = url;
+    }
+
+    newUser.save(function(err, user) {
+      if (err) return validationError(res, err);
+      var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
+      res.json({ token: token });
+    });
   });
 };
 
@@ -86,21 +117,10 @@ exports.changePassword = function(req, res, next) {
 exports.changePhoto = function(req, res, next) {
   var userId = req.user._id;
   var fbUsername = String(req.body.fb_username);
-
-  request({
-    url: 'http://www.facebook.com/' + fbUsername,
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36'
-    }
-  }, function (err, resp) {
-    console.log(fbUsername);
-    console.log(resp.statusCode);
-    if (!err && resp.statusCode === 200) {
-      var url = resp.body.match(/entity_id":"(\d*)"}/gi),
-          id = url[0].replace('entity_id":"','').replace('"}','');
-
+  getPhotoUrlWithFacebookUsername(fbUsername, function (url) {
+    if(url) {
       User.findById(userId, function (err, user) {
-        user.photo_url = 'http://graph.facebook.com/' + id + '/picture?type=large';
+        user.photo_url = url;
         user.save(function(err) {
           if (err) return validationError(res, err);
           res.send(user);
@@ -109,7 +129,7 @@ exports.changePhoto = function(req, res, next) {
     } else {
       res.send(403);
     }
-  })
+  });
 };
 
 /**

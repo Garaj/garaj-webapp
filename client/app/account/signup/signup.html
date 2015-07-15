@@ -90,14 +90,17 @@
             </p>
           </div>
 
-          <div class="form-group col-sm-6" ng-class="{ 'has-success': form.fb_username.$valid && submitted,
+          <div class="form-group col-sm-7" ng-class="{ 'has-success': form.fb_username.$valid && submitted,
                                               'has-error': form.fb_username.$invalid && submitted }">
-            <label>Facebook username</label>
+            <label>Facebook username (for profile photo)</label>
+            <div class="input-group">
+              <span class="input-group-addon">facebook.com/</span>
+              <input type="text" name="fb_username" class="form-control" ng-model="user.fb_username" placeholder="your fb username">
+            </div>
 
-            <input type="text" name="fb_username" class="form-control" ng-model="user.fb_username" placeholder="Will be used to show your photo"/>
           </div>
 
-          <div class="form-group col-sm-6">
+          <div class="form-group col-sm-3">
             <label class="col-sm-12">&nbsp;</label>
             <button class="btn btn-success" type="submit">Sign up</button>
           </div>

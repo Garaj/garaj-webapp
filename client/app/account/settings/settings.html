@@ -16,7 +16,7 @@
       <tabset>
         <tab heading="Personal Info">
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-8">
               <div class="row mt10">
                 <div class="col-sm-8">
                   <div class="form-group">
@@ -42,10 +42,13 @@
                   <div class="form-group">
                     <label>Facebook username</label>
                     <div class="row">
-                      <div class="col-sm-7">
-                        <input type="text" class="form-control" ng-model="user.fb_username" mongoose-error/>
+                      <div class="col-sm-8">
+                        <div class="input-group">
+                          <span class="input-group-addon">facebook.com/</span>
+                          <input type="text" class="form-control" ng-model="user.fb_username" mongoose-error/>
+                        </div>
                       </div>
-                      <div class="col-sm-5">
+                      <div class="col-sm-4">
                         <a href="#" ng-click="changePhoto()" class="btn btn-link">Update my picture</a>
                       </div>
                     </div>
@@ -54,7 +57,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-4">
               <h2>How do you look?</h2>
               <div class="media">
                 <div class="pull-left" style="width: 160px;">
