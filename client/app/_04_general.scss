@@ -1,0 +1,176 @@
+@import 'font-awesome/css/font-awesome.css';
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  margin-top: -$navbar-height;
+  margin-bottom: 160px;
+}
+a, a:hover {
+  color: $c1;
+}
+.navbar-default {
+  background-color: transparent;
+  position: relative;
+  z-index: 3;
+  top: $navbar-height;
+  border: none !important;
+  &, & a {
+    color: #fff !important;
+  }
+  .navbar-brand {
+    background: transparent !important;
+    font-size: 28px;
+    small {
+      display: inline-block;
+      line-height: 12px;
+      font-size: 12px;
+    }
+  }
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > a:hover, .navbar-default .navbar-nav > li:hover > a {
+  background: transparent !important;
+  color: #fff !important !important;
+}
+
+.navbar-nav {
+  margin: ($navbar-padding-vertical / 2) (-$navbar-padding-horizontal);
+
+  > li {
+    &.active a {
+      border-bottom: 1px solid #fff;
+      padding-bottom: 29px;
+    }
+    & > a {
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9em;
+      padding-right: 10px;
+      padding-left: 10px;
+      &:hover {
+        color: rgba(255,255,255,0.7) !important;
+      }
+      &.btn {
+        padding-top:    10px;
+        padding-bottom: 10px;
+        line-height: 18px;
+        margin: ($navbar-height - 38)/2 0 0;
+        background: $c2;
+        &:hover {
+          color: rgba(255,255,255,1) !important;
+          background: lighten($c2, 5%) !important;
+        }
+      }
+    }
+  }
+}
+
+.navbar-default .navbar-toggle {
+  border-color: #fff;
+  .icon-bar {
+    background: #fff;
+  }
+}
+
+.nav.navbar-nav.navbar-right {
+  margin: 0;
+}
+
+.navbar-default .navbar-toggle.active, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background: $c1;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav.navbar-nav.navbar-right {
+    background: #fff;
+    margin: 15px -15px;
+  }
+  .navbar-header a {
+    color: #fff !important;
+  }
+  .navbar-collapse a {
+    color: $c1 !important;
+  }
+  .navbar-header.on_nav a {
+    color: $c1 !important;
+  }
+  .navbar-nav > li.active a {
+    border-color: $c1;
+  }
+}
+
+.footer {
+  background: $c3;
+  color: $cw;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 140px;
+  padding: 20px 0;
+  a {
+    color: $cw !important;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.9em;
+  }
+}
+
+.choosable-block {
+  border: 2px solid transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 20px;
+  padding: 20px;
+  width: 350px;
+  text-align: left;
+  background: #eee;
+  color: #555;
+  @include transition(all .3s);
+  .choosable-block-list {
+    margin-bottom: 0;
+  }
+  .choosable-block-title {
+    margin-top: 0;
+    color: #333;
+  }
+  &:hover, &.active{
+    border: 2px solid $c2;
+    background: #fcfcfc;
+  }
+}
+
+.btn {
+  border: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.9em;
+}
+
+.barely_visible {
+  opacity: .3;
+}
+
+.insignificant {
+  opacity: .8;
+}
+
+$btn-dark-color:              #fff !default;
+$btn-dark-bg:                 $c3 !default;
+$btn-dark-border:             lighten($btn-dark-bg, 5%) !default;
+
+.btn-dark {
+  @include button-variant($btn-dark-color, $btn-dark-bg, $btn-dark-border);
+}

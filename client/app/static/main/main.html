@@ -1,0 +1,51 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h1>A coworking space near Bogazici University</h1>
+        <h3>&nbsp;</h3>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2>Latest from our blog</h2>
+      <div class="panel panel-default mt10 p10 blog-post" ng-repeat="post in posts">
+        <div class="row">
+          <div class="col-sm-2">
+            <img class="img-responsive img-circle"src="{{ post.by.photo_url }}" alt="{{ post.by.name}}">
+            <h4 class="insignificant">{{ post.by.name }}</h4>
+            <span class="barely_visible">{{ post.created_at | moment }}</span>
+          </div>
+          <div class="col-sm-10">
+            <h1 class="mt0">{{ post.title }}</h1>
+            <div ng-bind-html="post.content"></div>
+            <ul class="list-inline">
+              <li ng-repeat="tag in post.tags"><a href="/blog?tags={{tag}}" class="btn btn-primary btn-xs">{{ tag }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <h3>Upcoming events</h3>
+      <ul class="list-unstyled">
+        <li>
+          <p class="lead"><small>CoderDojo - 3<br>18 July, 2015 <br>9.00 - 12.00</small></p>
+        </li>
+        <li>
+          <p class="lead"><small>CoderDojo - 4<br>25 July, 2015 <br>9.00 - 12.00</small></p>
+        </li>
+        <li>
+          <p class="lead"><small>Garaj Talks - 6<br>28 July, 2015 <br>18.30 - 21.30</small></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div ng-include="'components/footer/footer.html'"></div>

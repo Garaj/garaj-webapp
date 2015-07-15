@@ -1,0 +1,33 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<script src="/assets/lib/redactor.js"></script>
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 class="text-center">Garaj Blog</h1>
+        <h3 class="text-center insignificant">We love sharing</h3>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="blog-post">
+        <input type="text" class="form-control mt10" placeholder="Post title" ng-model="post.title">
+        <div ng-model="post.content" class="editable"></div>
+        <label for="">Tags (separate with comma)</label>
+        <input type="text" class="form-control mt10" placeholder="Post tags" ng-keyup="onTagsChange()" ng-model="post.tagsString">
+        <ul class="list-inline mt10">
+          <li ng-repeat="tag in post.tags"><a href="/blog?tags={{tag}}" class="btn btn-primary btn-xs">{{ tag }}</a></li>
+        </ul>
+      </div>
+      <a href="#" class="btn btn-success" ng-click="save()"><span ng-show="post._id">Update</span><span ng-hide="post._id">Save</span> post</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div ng-include="'components/footer/footer.html'"></div>

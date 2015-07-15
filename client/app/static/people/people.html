@@ -1,0 +1,39 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center">People</h1>
+      <h3 class="text-center insignificant">Awesome people that hang around</h3>
+    </div>
+  </div>
+  </div>
+</header>
+<div class="container">
+  <div class="row mt20">
+    <div class="col-sm-6 mb20" ng-repeat="person in people">
+      <div class="media">
+        <div class="pull-left" style="width: 160px;">
+          <img class="img-responsive img-rounded" ng-src="{{ person.photo_url }}" alt="{{ person.name }}">
+        </div>
+        <div class="media-body">
+          <div class="row m0">
+            <div class="col-sm-12">
+              <div class="media-heading">
+                <h3 class="m0">{{ person.name }}</h3>
+                <p class="lead"><small>{{ person.title }}</small></p>
+              </div>
+              <ul class="list-inline">
+                <li ng-repeat="skill in person.skillsArray track by $index"><span ng-hide="$index > 2" class="btn btn-success btn-sm mb10">{{ skill }}</span></li>
+              </ul>
+              <a class="btn btn-primary" href="mailto:{{ person.email }}">Email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div ng-include="'components/footer/footer.html'"></div>

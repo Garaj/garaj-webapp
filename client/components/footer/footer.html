@@ -1,0 +1,13 @@
+<footer class="footer" ng-controller="NavbarCtrl">
+  <div class="container text-center">
+    <p class="lead insignificant">Garaj<br>Hisarustu Mh. 4. Sk No: 27/A Sariyer</p>
+    <ul class="list-inline">
+      <li ng-repeat="item in menu"><a href="{{item.link}}">{{ item.title }}</a></li>
+      <li class="hidden-xs" ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
+      <li class="hidden-xs" ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Signup</a></li>
+      <li ng-show="isLoggedIn()"><p class="navbar-text" style="margin: 0 0 -5px 0;">Hello {{ getCurrentUser().name }}</p> </li>
+      <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings"><span class="fa fa-cog"></span></a></li>
+      <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
+    </ul>
+  </div>
+</footer>

@@ -1,0 +1,120 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 class="text-center">Settings</h1>
+        <h3 class="text-center insignificant">Your profile settings</h3>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container" style="background:#fff">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Panel</h1>
+      <tabset>
+        <tab heading="Personal Info">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="row mt10">
+                <div class="col-sm-8">
+                  <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" ng-model="user.name" mongoose-error/>
+                  </div>
+                  <div class="form-group">
+                    <label>I'm a(n)</label>
+                    <input type="text" class="form-control" ng-model="user.title" mongoose-error/>
+                  </div>
+                  <div class="form-group">
+                    <label>Skills (separate with comma) <span class="insignificant">// everything is searchable, first 3 are visible</span></label>
+                    <input type="text" ng-change="onSkillsChange()" class="form-control" ng-model="user.skills" mongoose-error/>
+                  </div>
+                  <div class="form-group">
+                    <label>School</label>
+                    <input type="text" class="form-control" ng-model="user.school" mongoose-error/>
+                  </div>
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-control" ng-model="user.email" mongoose-error/>
+                  </div>
+                  <div class="form-group">
+                    <label>Facebook username</label>
+                    <div class="row">
+                      <div class="col-sm-7">
+                        <input type="text" class="form-control" ng-model="user.fb_username" mongoose-error/>
+                      </div>
+                      <div class="col-sm-5">
+                        <a href="#" ng-click="changePhoto()" class="btn btn-link">Update my picture</a>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-success" type="submit">Save changes</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <h2>How do you look?</h2>
+              <div class="media">
+                <div class="pull-left" style="width: 160px;">
+                  <img class="img-responsive img-rounded" ng-src="{{ user.photo_url }}" alt="{{ user.name }}">
+                </div>
+                <div class="media-body">
+                  <div class="row m0">
+                    <div class="col-sm-12">
+                      <div class="media-heading">
+                        <h3 class="m0">{{ user.name }}</h3>
+                        <p class="lead"><small>{{ user.title }}</small></p>
+                      </div>
+                      <ul class="list-inline">
+                        <li ng-repeat="skill in user.skillsArray"><span class="btn btn-success btn-sm mb10">{{ skill }}</span></li>
+                      </ul>
+                      <a class="btn btn-primary"href="mailto:{{ user.email }}">Email</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Change Password">
+          <div class="row">
+            <div class="col-sm-3 mt10">
+              <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
+
+                <div class="form-group">
+                  <label>Current Password</label>
+
+                  <input type="password" name="password" class="form-control" ng-model="user.oldPassword"
+                         mongoose-error/>
+                  <p class="help-block" ng-show="form.password.$error.mongoose">
+                      {{ errors.other }}
+                  </p>
+                </div>
+
+                <div class="form-group">
+                  <label>New Password</label>
+
+                  <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword"
+                         ng-minlength="3"
+                         required/>
+                  <p class="help-block"
+                     ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
+                    Password must be at least 3 characters.
+                  </p>
+                </div>
+
+                <p class="help-block"> {{ message }} </p>
+
+                <button class="btn btn-success" type="submit">Change Password</button>
+              </form>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>
+
+<div ng-include="'components/footer/footer.html'"></div>

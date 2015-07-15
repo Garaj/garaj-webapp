@@ -1,0 +1,46 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 class="text-center">Garaj Blog</h1>
+        <h3 class="text-center insignificant">We love sharing</h3>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="panel panel-default mt10 p10 blog-post blog-post-{{post._id}}" ng-repeat="post in posts">
+        <div class="row">
+          <div class="col-sm-2">
+            <img class="img-responsive img-circle" src="{{ post.by.photo_url }}" alt="{{ post.by.name }}">
+            <h4 class="insignificant">{{ post.by.name }}</h4>
+            <span class="barely_visible">{{ post.created_at | moment }}</span>
+          </div>
+          <div class="col-sm-10">
+            <h1 class="mt0">{{ post.title }}</h1>
+            <div ng-bind-html="post.content"></div>
+            <ul class="list-inline">
+              <li ng-repeat="tag in post.tags"><a href="/blog?tags={{tag}}" class="btn btn-primary btn-xs">{{ tag }}</a></li>
+            </ul>
+            <div class="pull-right">
+              <a href="#" ng-click="deletePost(post._id)"class="btn btn-sm btn-danger">Delete post</a>
+              <a href="/blog/edit/{{ post._id }}"class="btn btn-sm btn-info">Edit post</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 mt10">
+      <a href="/blog/new-post" ng-show="isAdmin()" class="btn btn-success">Add new post</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div ng-include="'components/footer/footer.html'"></div>
