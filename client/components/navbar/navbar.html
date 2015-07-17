@@ -14,7 +14,7 @@
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav navbar-right">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-          <a ng-href="{{item.link}}">{{item.title}}</a>
+          <a ng-href="{{item.link}}" target="item.target"><span ng-show="item.icon" class="fa fa-{{item.icon}}"></span><span ng-show="item.title">{{item.title}}</span></a>
         </li>
       </ul>
     </div>

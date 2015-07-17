@@ -30,7 +30,18 @@ angular.module('garajApp')
     {
       'title': 'Sponsors',
       'link': '/sponsors'
+    },
+    {
+      'icon' : 'facebook',
+      'target' : '_blank',
+      'link': 'https://www.facebook.com/groups/garajco/'
+    },
+    {
+      'icon' : 'twitter',
+      'target' : '_blank',
+      'link': 'https://www.twitter.com/garajco/'
     }
+
     ];
 
     $scope.isCollapsed = true;
