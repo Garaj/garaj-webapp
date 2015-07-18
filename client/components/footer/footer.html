@@ -1,8 +1,11 @@
-<footer class="footer" ng-controller="NavbarCtrl">
+<footer class="footer" ng-controller="FooterCtrl">
   <div class="container text-center">
     <p class="lead insignificant">Garaj<br>Hisarustu Mh. 4. Sk No: 27/A Sariyer</p>
     <ul class="list-inline">
-      <li ng-repeat="item in menu"><a href="{{item.link}}">{{ item.title }}</a></li>
+      <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
+        <a ng-href="{{item.link}}" target="{{ item.target }}"><span ng-show="item.icon" class="fa fa-{{item.icon}}"></span><span ng-show="item.title">{{item.title}}</span></a>
+      </li>
+
       <li class="hidden-xs" ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
       <li class="hidden-xs" ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Signup</a></li>
       <li ng-show="isLoggedIn()"><p class="navbar-text" style="margin: 0 0 -5px 0;">Hello {{ getCurrentUser().name }}</p> </li>

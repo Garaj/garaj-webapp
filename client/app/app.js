@@ -33,6 +33,12 @@ angular.module('garajApp', [
         if ($cookieStore.get('token')) {
           config.headers.Authorization = 'Bearer ' + $cookieStore.get('token');
         }
+
+        // this fix is for the space api
+        if(config.url.indexOf('http://') > -1) {
+          delete config.headers.Authorization;
+        }
+
         return config;
       },
 

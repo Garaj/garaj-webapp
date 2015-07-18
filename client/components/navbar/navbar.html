@@ -10,11 +10,17 @@
       <a href="/" class="navbar-brand">
         <img  style="width: 130px; height: auto;" src="/assets/images/logo-white.png" alt="Garaj Logo">
       </a>
+      <div ng-show="state.open" class="garaj-state">
+        &nbsp;<span class="fa fa-circle" style="color: #0aec6a"></span> Garaj is open! {{ state.headcount }} people inside.
+      </div>
+      <div ng-hide="state.open" class="garaj-state insignificant">
+        &nbsp;<span class="insignificant fa fa-circle-o"></span> Garaj is currently closed.
+      </div>
     </div>
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav navbar-right">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-          <a ng-href="{{item.link}}" target="item.target"><span ng-show="item.icon" class="fa fa-{{item.icon}}"></span><span ng-show="item.title">{{item.title}}</span></a>
+          <a ng-href="{{item.link}}" target="{{ item.target }}"><span ng-show="item.icon" class="fa fa-{{item.icon}}"></span><span ng-show="item.title">{{item.title}}</span></a>
         </li>
       </ul>
     </div>
