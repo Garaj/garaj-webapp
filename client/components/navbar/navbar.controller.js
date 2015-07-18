@@ -44,7 +44,7 @@ angular.module('garajApp')
     $scope.state = $rootScope.lastState;
     $scope.menu = menu;
 
-    $http.get('http://spaceapi.net/cache/Garaj').success(function(data) {
+    $http.get('http://api.garaj.co/spaceapi').success(function(data) {
       $scope.state = $rootScope.lastState = data.state;
       $scope.state.lastChangeDate = new Date(data.state.lastchange * 1000);
     });
