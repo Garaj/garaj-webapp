@@ -15,7 +15,7 @@
     <div class="col-sm-6 mb20" ng-repeat="person in people">
       <div class="media">
         <div class="pull-left" style="width: 160px;">
-          <img class="img-responsive img-rounded" err-src="/assets/images/placeholders/person.png" ng-src="{{ person.photo_url }}" alt="{{ person.name }}">
+          <img gravatar-src-once="'{{ person.email }}'" gravatar-size="160" class="img-responsive img-rounded" alt="{{ person.name }}">
         </div>
         <div class="media-body">
           <div class="row m0">

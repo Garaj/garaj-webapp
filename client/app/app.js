@@ -7,7 +7,8 @@ angular.module('garajApp', [
   'ngRoute',
   'btford.socket-io',
   'ui-notification',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ui.gravatar'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
