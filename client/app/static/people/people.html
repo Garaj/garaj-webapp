@@ -12,10 +12,11 @@
 </header>
 <div class="container">
   <div class="row mt20">
-    <div class="col-sm-6 mb20" ng-repeat="person in people">
+  <div ng-repeat="person in people track by $index">
+    <div class="col-sm-6 mb20" >
       <div class="media">
         <div class="pull-left" style="width: 160px;">
-          <img gravatar-src-once="'{{ person.email }}'" gravatar-size="160" class="img-responsive img-rounded" alt="{{ person.name }}">
+          <img gravatar-src-once="person.email" gravatar-size="160" class="img-responsive img-rounded" alt="{{ person.name }}">
         </div>
         <div class="media-body">
           <div class="row m0">
@@ -33,6 +34,8 @@
         </div>
       </div>
     </div>
+    <div class="clearfix" ng-show="$index%2===1"></div>
+  </div>
   </div>
 </div>
 
