@@ -42,14 +42,11 @@
                   <div class="form-group">
                     <label>Facebook username</label>
                     <div class="row">
-                      <div class="col-sm-8">
+                      <div class="col-sm-12">
                         <div class="input-group">
                           <span class="input-group-addon">facebook.com/</span>
                           <input type="text" class="form-control" ng-model="user.fb_username" mongoose-error/>
                         </div>
-                      </div>
-                      <div class="col-sm-4">
-                        <a href="#" ng-click="changePhoto()" class="btn btn-link">Update my picture</a>
                       </div>
                     </div>
                   </div>
@@ -61,7 +58,7 @@
               <h2>How do you look?</h2>
               <div class="media">
                 <div class="pull-left" style="width: 160px;">
-                  <img class="img-responsive img-rounded" ng-src="{{ user.photo_url }}" alt="{{ user.name }}">
+                  <img gravatar-src="'{{ user.email }}'" gravatar-size="160" alt="{{ user.name }}">
                 </div>
                 <div class="media-body">
                   <div class="row m0">

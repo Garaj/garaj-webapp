@@ -19,7 +19,8 @@
     "angular-ui-notification": "~0.0.11",
     "medium-editor": "~5.3.0",
     "moment": "~2.10.3",
-    "sweetalert": "~1.0.1"
+    "sweetalert": "~1.0.1",
+    "angular-gravatar": "~0.3.2"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
