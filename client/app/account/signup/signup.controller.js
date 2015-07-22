@@ -20,6 +20,7 @@ angular.module('garajApp')
           password: $scope.user.password
         })
         .then( function() {
+          // Account created, authenticate
           Auth.login({
             email: $scope.user.email,
             password: $scope.user.password
