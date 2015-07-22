@@ -20,8 +20,17 @@ angular.module('garajApp')
           password: $scope.user.password
         })
         .then( function() {
-          // Account created, redirect to home
-          $location.path('/');
+          Auth.login({
+            email: $scope.user.email,
+            password: $scope.user.password
+          })
+          .then( function() {
+            // Logged in, redirect to home
+            $location.path('/');
+          })
+          .catch( function(err) {
+            $scope.errors.other = err.message;
+          });
         })
         .catch( function(err) {
           err = err.data;
