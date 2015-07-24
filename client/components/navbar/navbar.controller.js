@@ -1,10 +1,6 @@
 'use strict';
 var menu = [
   {
-    'title': 'About',
-    'link': '/about'
-  },
-  {
     'title': 'People',
     'link': '/people'
   },
