@@ -45,7 +45,7 @@ angular.module('garajApp')
         text: ''
       },
       toolbar: {
-        buttons: ['bold', 'italic', 'unorderedlist', 'anchor', 'h2', 'h3', 'quote'],
+        buttons: ['anchor', 'bold', 'italic', 'unorderedlist', 'anchor', 'h2', 'h3', 'quote'],
       }
     });
 
