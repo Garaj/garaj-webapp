@@ -25,6 +25,11 @@ var menu = [
     'link': '/sponsors'
   },
   {
+    'icon' : 'github',
+    'target' : '_blank',
+    'link': 'https://github.com/Garaj'
+  },
+  {
     'icon' : 'facebook',
     'target' : '_blank',
     'link': 'https://www.facebook.com/groups/garajco/'
@@ -33,7 +38,8 @@ var menu = [
     'icon' : 'twitter',
     'target' : '_blank',
     'link': 'https://www.twitter.com/garajco/'
-  }];
+  }
+];
 
 angular.module('garajApp')
   .controller('NavbarCtrl', function ($scope, $rootScope, $location, $http, Auth) {
