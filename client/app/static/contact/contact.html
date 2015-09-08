@@ -1,28 +1,72 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h1 class="text-center">Contact</h1>
-        <h3 class="text-center insignificant">Hisarustu Mh. 4. Sk No: 27/A Sariyer</h3>
-      </div>
+<section id="content" class="clearfix">
+
+  <div class="container clearfix">
+
+    <header class="page-header mb0">
+
+      <h1 class="page-title pb10">We'd love to hear from you</h1>
+
+    </header><!-- end .page-header -->
+
+  </div><!-- end .container -->
+
+  <div class="container clearfix">
+    <div class="google-maps">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m24!1m12!1m3!1d1503.6258765051991!2d29.047249558087934!3d41.08534572802121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m9!3e2!4m3!3m2!1d41.0874689!2d29.048483899999997!4m3!3m2!1d41.085413599999995!2d29.0471853!5e0!3m2!1str!2s!4v1433241962194" frameborder="0" style="border:0"></iframe>
     </div>
-  </div>
-</header>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8">
-      <h2>See it on map</h2>
-      <div class="google-maps">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m24!1m12!1m3!1d1503.6258765051991!2d29.047249558087934!3d41.08534572802121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m9!3e2!4m3!3m2!1d41.0874689!2d29.048483899999997!4m3!3m2!1d41.085413599999995!2d29.0471853!5e0!3m2!1str!2s!4v1433241962194" frameborder="0" style="border:0"></iframe>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <h2>Contact via email</h2>
-      <p class="lead"><small><a href="mailto:info@garaj.co">info [at] garaj.co</a></small></p>
-    </div>
-  </div>
-</div>
+
+    <div class="one-fourth mt20">
+
+      <h2>Contact Info</h2>
+
+      <p>Hisarustu Mh. 4. Sk <br>No: 27/A Sariyer</p>
+      <p>info [at] garaj.co</p>
+
+    </div><!-- end .one-fourth -->
+
+    <div class="three-fourth mt20 last">
+
+      <h2>Let's keep in touch</h2>
+
+      <form action="php/contact-send.php" method="post" class="contact-form">
+
+        <p class="input-block">
+          <label for="contact-name"><strong>Name</strong> (required)</label>
+          <input type="text" name="name" value="" id="contact-name" required>
+        </p>
+
+        <p class="input-block">
+          <label for="contact-email"><strong>Email</strong> (required)</label>
+          <input type="email" name="email" value="" id="contact-email" required>
+        </p>
+
+        <p class="input-block">
+          <label for="contact-subject"><strong>Subject</strong></label>
+          <input type="text" name="subject" value="" id="contact-subject">
+        </p>
+
+        <p class="textarea-block">
+          <label for="contact-message"><strong>Your Message</strong> (required)</label>
+          <textarea name="message" id="contact-message" cols="88" rows="6" required></textarea>
+        </p>
+
+        <div class="hidden">
+          <label for="contact-spam-check">Do not fill out this field:</label>
+          <input name="spam-check" type="text" value="" id="contact-spam-check" />
+        </div>
+
+        <input type="submit" value="Submit">
+
+        <div class="clear"></div>
+
+      </form>
+
+    </div><!-- end .three-fourth.last -->
+
+  </div><!-- end .container -->
+
+</section><!-- end #content -->
 
 <div ng-include="'components/footer/footer.html'"></div>

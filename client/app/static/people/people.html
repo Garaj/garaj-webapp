@@ -1,42 +1,22 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
-  <div class="container">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1 class="text-center">People</h1>
-      <h3 class="text-center insignificant">Awesome people that hang around</h3>
-    </div>
-  </div>
-  </div>
-</header>
-<div class="container">
-  <div class="row mt20">
+<section id="content" class="container clearfix">
   <div ng-repeat="person in people track by $index">
-    <div class="col-sm-6 mb20" >
-      <div class="media">
-        <div class="pull-left" style="width: 160px;">
-          <img gravatar-src-once="person.email" gravatar-size="160" class="img-responsive img-rounded" alt="{{ person.name }}">
-        </div>
-        <div class="media-body">
-          <div class="row m0">
-            <div class="col-sm-12">
-              <div class="media-heading">
-                <h3 class="m0">{{ person.name }}</h3>
-                <p class="lead"><small>{{ person.title }}</small></p>
-              </div>
-              <ul class="list-inline">
-                <li ng-repeat="skill in person.skillsArray track by $index"><span ng-hide="$index > 2" class="btn btn-success btn-sm mb10">{{ skill }}</span></li>
-              </ul>
-              <a class="btn btn-primary" href="mailto:{{ person.email }}">Email</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="clearfix" ng-show="$index%2===1"></div>
+    <div class="team-member one-fourth" ng-class="{'last': $index%4===3}">
+
+      <img gravatar-src-once="person.email" gravatar-size="220" class="img-responsive img-rounded" alt="{{ person.name }}">
+      <div class="content">
+
+        <h4 class="name">{{ person.name }}</h4>
+
+        <span class="job-title">{{ person.title }}</span>
+
+        <span ng-repeat="skill in person.skillsArray track by $index"><span ng-hide="$index > 2" class="btn btn-success btn-sm mb10">{{ skill }}, </span></span>
+
+      </div><!-- end .content -->
+    </div><!-- end .team-member.one-fourth -->
+    <div ng-show="$index%4===3" class="clearfix"></div>
   </div>
-  </div>
-</div>
+</section>
 
 <div ng-include="'components/footer/footer.html'"></div>

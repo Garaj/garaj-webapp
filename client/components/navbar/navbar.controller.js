@@ -13,16 +13,17 @@ var menu = [
     'link': '/events'
   },
   {
-    'title': 'Blog',
-    'link': '/blog'
-  },
-  {
     'title': 'Contact',
     'link': '/contact'
   },
   {
     'title': 'Sponsors',
     'link': '/sponsors'
+  },
+  {
+    'title': 'Blog',
+    'target' : '_blank',
+    'link': 'http://www.medium.com/@garaj'
   },
   {
     'icon' : 'facebook',
@@ -33,7 +34,13 @@ var menu = [
     'icon' : 'twitter',
     'target' : '_blank',
     'link': 'https://www.twitter.com/garajco/'
-  }];
+  },
+  {
+    'icon' : 'github-alt',
+    'target' : '_blank',
+    'link': 'https://www.github.com/garaj/'
+  }
+  ];
 
 angular.module('garajApp')
   .controller('NavbarCtrl', function ($scope, $rootScope, $location, $http, Auth) {
@@ -57,6 +64,10 @@ angular.module('garajApp')
 
     $scope.isActive = function(route) {
       return route === $location.path();
+    };
+
+    $scope.contains = function(route) {
+      return ($location.path().indexOf(route) !== -1);
     };
   })
   .controller('FooterCtrl', function ($scope, $location, $http, Auth) {

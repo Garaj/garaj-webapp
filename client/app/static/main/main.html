@@ -1,56 +1,28 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
+  <h2 class="slogan mt20 align-center">Garaj is a coworking space for hackers, makers and tinkerers in Hisarustu, Istanbul.<br />
+  We love to create and hack software and hardware.</h2>
   <div class="container">
-    <div class="row">
-      <div class="col-sm-12 text-center">
-        <h1>A coworking space near Bogazici University</h1>
-        <h3>&nbsp;</h3>
-      </div>
-    </div>
+    <p>Most of us are students at Bogazici University, but we come from all walks of life and share our knowledge and create together in this special place. Free as in speech and free as in beer! You do not have to pay anything for building things at Garaj, and this is a special place where we love to hear interesting ideas from creative people like you!</p>
   </div>
-</header>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8">
-      <h2>What is Garaj?</h2>
-      <p class="lead"><small>Garaj is a coworking space for hackers, makers and tinkerers in Hisarustu, Istanbul. We love to create and hack software and hardware.</small></p>
-      <p class="lead"><small>Most of us are students at Bogazici University, but we come from all walks of life and share our knowledge and create together in this special place.</small></p>
-      <h2>Garaj is free!</h2>
-      <p class="lead"><small>Free as in speech and free as in beer! You do not have to pay anything for building things at Garaj, and this is a special place where we love to hear interesting ideas from creative people like you!</small></p>
-      <h2>Latest from our blog</h2>
-      <div class="panel panel-default mt10 p10 blog-post" ng-repeat="post in posts">
-        <div class="row">
-          <div class="col-sm-2">
-            <img gravatar-src-once="post.by.email" gravatar-size="160" class="img-responsive img-circle" alt="{{ post.by.name }}">
-            <h4 class="insignificant">{{ post.by.name }}</h4>
-            <span class="barely_visible">{{ post.created_at | moment }}</span>
-          </div>
-          <div class="col-sm-10">
-            <h1 class="mt0">{{ post.title }}</h1>
-            <div ng-bind-html="post.content"></div>
-            <ul class="list-inline">
-              <li ng-repeat="tag in post.tags"><a href="/blog?tags={{tag}}" class="btn btn-primary btn-xs">{{ tag }}</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+  <section id="content" class="container clearfix">
+    <div class="two-third">
+    <p>hey</p>
     </div>
-    <div class="col-sm-4">
+    <div class="one-third last">
       <h3>Upcoming events</h3>
       <ul class="list-unstyled">
         <li>
-          <p class="lead"><small>CoderDojo - 3<br>18 July, 2015 <br>9.00 - 12.00</small></p>
+          <p class="lead">Javascript for Beginners<small><br>October 2015 <br>Demircan Çelebi</small></p>
         </li>
         <li>
-          <p class="lead"><small>CoderDojo - 4<br>25 July, 2015 <br>9.00 - 12.00</small></p>
+          <p class="lead">iOS Development for Beginners<small><br>October 2015 <br>Çağlayan Şerbetçi</small></p>
         </li>
         <li>
-          <p class="lead"><small>Garaj Talks - 6<br>28 July, 2015 <br>18.30 - 21.30</small></p>
+          <p class="lead">Android Development for Beginners<small><br>October 2015 <br>Ahmet Safa Orhan</small></p>
         </li>
       </ul>
     </div>
-  </div>
-</div>
+  </section>
 
 <div ng-include="'components/footer/footer.html'"></div>

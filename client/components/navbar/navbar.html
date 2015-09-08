@@ -1,28 +1,39 @@
-<div class="navbar navbar-default navbar-static-top mb0" ng-controller="NavbarCtrl">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/" class="navbar-brand">
-        <img  style="width: 130px; height: auto;" src="/assets/images/logo-white.png" alt="Garaj Logo">
-      </a>
-      <div ng-show="state.open" class="garaj-state">
-        &nbsp;<span class="fa fa-circle" style="color: #0aec6a"></span> Garaj is open! {{ state.headcount }} people inside.
-      </div>
-      <div ng-hide="state.open" class="garaj-state insignificant">
-        &nbsp;<span class="insignificant fa fa-circle-o"></span> Garaj is currently closed.
-      </div>
-    </div>
-    <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-          <a ng-href="{{item.link}}" target="{{ item.target }}"><span ng-show="item.icon" class="fa fa-{{item.icon}}"></span><span ng-show="item.title">{{item.title}}</span></a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+<header id="header" class="container clearfix" ng-controller="NavbarCtrl">
+
+  <a href="/" id="logo">
+    <img src="/assets/images/logo.png" style="width: 100px; margin: 15px 10px 0px;" alt="Garaj">
+    <div ng-show="state.open" class="ml10">Garaj is open! {{ state.headcount }} people inside.</div>
+    <div ng-hide="state.open" class="ml10 insignificant">Garaj is currently closed.</div>
+  </a>
+
+  <nav id="main-nav">
+
+    <ul>
+      <li ng-class="{'current': isActive('/people')}">
+        <a href="/people" data-description="Creative minds">People</a>
+      </li>
+      <li ng-class="{'current': contains('/projects')}">
+        <a href="/projects" data-description="Work we are proud of">Projects</a>
+        <ul>
+          <li ng-class="{'current': isActive('/projects/smart-lock')}"><a href="/projects/smart-lock">Smart Lock</a></li>
+          <li ng-class="{'current': isActive('/projects/the-button')}"><a href="/projects/the-button">The Button</a></li>
+          <li ng-class="{'current': isActive('/projects/diy-lego-arm')}"><a href="/projects/diy-lego-arm">DIY Lego Arm</a></li>
+        </ul>
+      </li>
+      <li ng-class="{'current': isActive('/events')}">
+        <a href="/events" data-description="Enquire here">Events</a>
+      </li>
+      <li ng-class="{'current': isActive('/blog')}">
+        <a href="/blog" data-description="What we think">Blog</a>
+      </li>
+      <li ng-class="{'current': isActive('/contact')}">
+        <a href="/contact" data-description="Enquire here">Contact</a>
+      </li>
+      <li ng-class="{'current': isActive('/sponsors')}">
+        <a href="/sponsors" data-description="Enquire here">Sponsors</a>
+      </li>
+    </ul>
+
+  </nav><!-- end #main-nav -->
+
+</header><!-- end #header -->

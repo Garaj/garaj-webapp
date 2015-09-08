@@ -1,16 +1,57 @@
-<footer class="footer" ng-controller="FooterCtrl">
-  <div class="container text-center">
-    <p class="lead insignificant">Garaj<br>Hisarustu Mh. 4. Sk No: 27/A Sariyer</p>
-    <ul class="list-inline">
-      <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-        <a ng-href="{{item.link}}" target="{{ item.target }}"><span ng-show="item.icon" class="fa fa-{{item.icon}}"></span><span ng-show="item.title">{{item.title}}</span></a>
-      </li>
+<footer id="footer" class="clearfix" ng-controller="FooterCtrl">
 
+  <div class="container">
+
+    <div class="three-fourth">
+
+      <nav id="footer-nav" class="clearfix">
+
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/projects">Projects</a></li>
+          <li><a href="/events">Events</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/sponsors">Sponsors</a></li>
+        </ul>
+
+      </nav><!-- end #footer-nav -->
+
+      <ul class="contact-info">
+        <li class="address">Hisarustu Mh. 4. Sk No: 27/A Sariyer</li>
+      </ul><!-- end .contact-info -->
+
+    </div><!-- end .three-fourth -->
+
+    <div class="one-fourth last">
+
+      <span class="title">Stay connected</span>
+
+      <ul class="social-links">
+        <li class="twitter"><a href="http://twitter.com/garajco">Twitter</a></li>
+        <li class="facebook"><a href="http://facebook.com/garajco">Facebook</a></li>
+        <li class="facebook"><a href="http://github.com/garaj">Github</a></li>
+      </ul><!-- end .social-links -->
+
+    </div><!-- end .one-fourth.last -->
+
+  </div><!-- end .container -->
+
+</footer><!-- end #footer -->
+
+<footer id="footer-bottom" class="clearfix">
+
+  <div class="container">
+
+    <ul>
+      <li>Garaj &copy; 2015</li>
       <li class="hidden-xs" ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
       <li class="hidden-xs" ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Signup</a></li>
       <li ng-show="isLoggedIn()"><p class="navbar-text" style="margin: 0 0 -5px 0;">Hello {{ getCurrentUser().name }}</p> </li>
       <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings"><span class="fa fa-cog"></span></a></li>
       <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
     </ul>
-  </div>
-</footer>
+
+  </div><!-- end .container -->
+
+</footer><!-- end #footer-bottom -->

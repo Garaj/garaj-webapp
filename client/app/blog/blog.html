@@ -1,43 +1,145 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h1 class="text-center">Garaj Blog</h1>
-        <h3 class="text-center insignificant">We love sharing</h3>
-      </div>
-    </div>
-  </div>
-</header>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8">
-      <div class="panel panel-default mt10 p10 blog-post blog-post-{{post._id}}" ng-repeat="post in posts">
-        <div class="row">
-          <div class="col-sm-2">
-            <img gravatar-src-once="post.by.email" gravatar-size="160" class="img-responsive img-circle" alt="{{ post.by.name }}">
-            <h4 class="insignificant">{{ post.by.name }}</h4>
-            <span class="barely_visible">{{ post.created_at | moment }}</span>
-          </div>
-          <div class="col-sm-10">
-            <h1 class="mt0">{{ post.title }}</h1>
-            <div ng-bind-html="post.content"></div>
-            <ul class="list-inline">
-              <li ng-repeat="tag in post.tags"><a href="/blog?tags={{tag}}" class="btn btn-primary btn-xs">{{ tag }}</a></li>
-            </ul>
-            <div class="pull-right" ng-show="isAdmin()">
-              <a href="#" ng-click="deletePost(post._id)"class="btn btn-sm btn-danger">Delete post</a>
-              <a href="/blog/edit/{{ post._id }}"class="btn btn-sm btn-info">Edit post</a>
-            </div>
-          </div>
+<section id="content" class="container clearfix">
+
+  <header class="page-header">
+
+    <h1 class="page-title">Welcome to our blog</h1>
+
+  </header><!-- end .page-header -->
+
+  <section id="main">
+
+    <article class="entry clearfix" ng-repeat="post in posts">
+
+      <a href="single-post.html" title="">
+        <img src="assets/images/placeholders/blog-post-1.jpg" alt="" class="entry-image">
+      </a>
+
+      <div class="entry-body">
+
+        <a href="single-post.html">
+          <h2>{{ post.title }}</h2>
+        </a>
+        <div ng-bind-html="post.content"></div>
+
+      </div><!-- end .entry-body -->
+
+      <div class="entry-meta">
+
+        <ul>
+          <li><a href="single-post.html"><img gravatar-src-once="post.by.email" gravatar-size="110" class="img-responsive img-circle" alt="{{ post.by.name }}"></a></li>
+          <li><span class="title pull-right">Author</span><br><a href="#">{{ post.by.name }}</a></li><br>
+          <li><span class="title pull-right">Posted on</span><br><a href="#">{{ post.created_at | moment }}</a></li><br>
+          <li><span class="title pull-right">Tags</span><br><span ng-repeat="tag in post.tags">{{ tag }}, </span></li>
+        </ul>
+
+        <div ng-show="isAdmin()">
+          <a href="#" ng-click="deletePost(post._id)"class="btn btn-sm btn-danger">Delete post</a>
+          <a href="/blog/edit/{{ post._id }}"class="btn btn-sm btn-info">Edit post</a>
         </div>
+
+      </div><!-- end .entry-meta -->
+
+    </article><!-- end .entry -->
+
+    <ul class="pagination">
+      <li class="next"><a href="#">&larr; Next</a></li>
+      <li><a href="#">1</a></li>
+      <li class="current">2</li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li class="prev"><a href="#">Previous &rarr;</a></li>
+    </ul>
+
+  </section><!-- end #main -->
+
+  <aside id="sidebar">
+    <a href="/blog/new-post" ng-show="isAdmin()" class="btn btn-success">Add new post</a>
+
+    <div class="widget">
+
+      <h6 class="widget-title">Blog Categories</h6>
+
+      <ul class="categories">
+        <li><a href="#">Design</a></li>
+        <li><a href="#">Awards &amp; Recognition</a></li>
+        <li><a href="#">Competitions</a></li>
+        <li><a href="#">Travel &amp; Tourism</a></li>
+        <li><a href="#">Direct Mail</a></li>
+        <li><a href="#">Environment</a></li>
+      </ul>
+
+    </div><!-- end .widget -->
+
+    <div class="widget">
+
+      <h6 class="widget-title">Text Widget</h6>
+
+      <p>Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+
+    </div><!-- end .widget -->
+
+    <div class="widget">
+
+      <h6 class="widget-title">Accordion Widget</h6>
+
+      <h4 class="acc-trigger">
+        <a href="#">User Research</a>
+      </h4>
+
+      <div class="acc-container">
+        <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nisl orci, condimentum ultrices consequat eu. Aenean nisl orci, cosequat eu.</div>
       </div>
-    </div>
-    <div class="col-sm-4 mt10">
-      <a href="/blog/new-post" ng-show="isAdmin()" class="btn btn-success">Add new post</a>
-    </div>
-  </div>
-</div>
+
+      <h4 class="acc-trigger">
+        <a href="#">Organizational Consulting</a>
+      </h4>
+
+      <div class="acc-container">
+        <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nisl orci, condimentum ultrices consequat eu. Aenean nisl orci, cosequat eu.</div>
+      </div>
+
+      <h4 class="acc-trigger">
+        <a href="#">Competitive Analysis</a>
+      </h4>
+
+      <div class="acc-container">
+        <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nisl orci, condimentum ultrices consequat eu. Aenean nisl orci, cosequat eu.</div>
+      </div>
+
+      <h4 class="acc-trigger">
+        <a href="#">Market Research</a>
+      </h4>
+
+      <div class="acc-container">
+        <div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nisl orci, condimentum ultrices consequat eu. Aenean nisl orci, cosequat eu.</div>
+      </div>
+
+    </div><!-- end .widget -->
+
+    <div class="widget">
+
+      <h6 class="widget-title">Twitter Feed</h6>
+
+      <ul class="tweets-feed">
+        <li>Oops, our Twitter feed is unavailable at the moment - <a href="http://twitter.com/">Follow us on Twitter!</a></li>
+      </ul><!-- end .tweets-feed -->
+
+    </div><!-- end .widget -->
+
+    <div class="widget">
+
+      <h6 class="widget-title">Flickr Feed</h6>
+
+      <ul class="flickr-feed">
+        <li>Oops, our Flickr feed is unavailable at the moment - <a href='http://flickr.com/'>Check our images on Flickr!</a></li>
+      </ul><!-- end .flickr-feed -->
+
+    </div><!-- end .widget -->
+
+  </aside><!-- end #sidebar -->
+
+</section><!-- end #content -->
 
 <div ng-include="'components/footer/footer.html'"></div>
